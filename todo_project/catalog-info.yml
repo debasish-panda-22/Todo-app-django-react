@@ -8,7 +8,7 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: user:default/guest
+  owner: adansa
   providesApis:
     - todo-api
 
@@ -21,6 +21,6 @@ metadata:
 spec:
   type: openapi
   lifecycle: experimental
-  owner: user:default/guest
+  owner: adansa
   definition:
     $text: http://localhost:8000/swagger.json  # Update with actual URL in production
