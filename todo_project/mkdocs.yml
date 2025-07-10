@@ -1,0 +1,5 @@
+site_name: Todo App Docs
+nav:
+  - Home: index.md
+plugins:
+  - techdocs-core
