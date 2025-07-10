@@ -23,4 +23,4 @@ spec:
   lifecycle: experimental
   owner: user:default/guest
   definition:
-    $text: http://localhost:8000/swagger/  # Update with actual URL in production
+    $text: http://localhost:8000/swagger.json  # Update with actual URL in production
