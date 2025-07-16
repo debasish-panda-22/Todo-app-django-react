@@ -3,16 +3,18 @@ pipeline {
     stages {
         stage('Build Backend') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh 'docker login -u $DOCKER_USER -p $DOCKER_PASS'
-                    sh 'docker build -t debasishpanda5/django-todo:latest .'
-                    sh 'docker push debasishpanda5/django-todo:latest'
+                dir('todo_project') {
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        sh 'docker login -u $DOCKER_USER -p $DOCKER_PASS'
+                        sh 'docker build -t debasishpanda5/django-todo:latest .'
+                        sh 'docker push debasishpanda5/django-todo:latest'
+                    }
                 }
             }
         }
         stage('Build Frontend') {
             steps {
-                dir('todo-frontend') {
+                dir('todo_project/todo-frontend') {
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                         sh 'docker login -u $DOCKER_USER -p $DOCKER_PASS'
                         sh 'docker build -t debasishpanda5/react-todo:latest .'
