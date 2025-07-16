@@ -1,0 +1,33 @@
+---
+- hosts: hosts
+  tasks:
+    - name: Stop and remove existing backend container
+      docker_container:
+        name: django-todo
+        state: absent
+    - name: Pull backend image
+      docker_image:
+        name: debasishpanda5/django-todo:latest
+        source: pull
+    - name: Run backend container
+      docker_container:
+        name: django-todo
+        image: debasishpanda5/django-todo:latest
+        state: started
+        ports:
+          - "8000:8000"
+    - name: Stop and remove existing frontend container
+      docker_container:
+        name: react-todo
+        state: absent
+    - name: Pull frontend image
+      docker_image:
+        name: debasishpanda5/react-todo:latest
+        source: pull
+    - name: Run frontend container
+      docker_container:
+        name: react-todo
+        image: debasishpanda5/react-todo:latest
+        state: started
+        ports:
+          - "80:80"
