@@ -1,0 +1,9 @@
+Django==5.2.1
+djangorestframework==3.16.0
+drf-yasg==1.21.10
+django-cors-headers==4.7.0  # For enabling React frontend to access backend APIs
+django-redis==5.4.0         # Only if you're using Redis caching
+sqlparse==0.5.3             # Required by Django
+
+# Gunicorn is recommended for Dockerized production runs
+gunicorn>=21.2.0
