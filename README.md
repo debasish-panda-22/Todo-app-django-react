@@ -1,2 +1,2 @@
 hello world
-this is a project for to do app
+this is a project for to do app for now
