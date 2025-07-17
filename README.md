@@ -1,2 +1,1 @@
-hello world
-this is a project for to do app for now
+this is a todo app project made in Django and React
